@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Events</title>
+</head>
+
+<!-- 
+  INTRODUCTION TO THE DOM (THE DOCUMENT OBJECT MODEL)
+  - It represents the structure of a document as a tree of objects, allowing developers to interact with and manipulate the content of a web page using JavaScript.
+  - The DOM is created by the browser when a web page is loaded, and it consists of a hierarchy of nodes that represent elements, attributes, and text content.
+  - Each html element within the webpage, such as headings, paragraphs, and buttons, is represented as a node in the DOM tree structure. 
+  
+  HTML EVENTS
+  - Events are actions or occurrences that happen in the system or in the document, such as when a user clicks a button, hovers over an element, submits a form, or types in an input field.
+  - In web development, events are used to trigger JavaScript functions or scripts in response to user interactions with the web page.
+
+  - The most common HTML events are:
+    - onclick: when an element is clicked.
+    - onmouseover: when the mouse pointer is moved over an element.
+    - onmouseout: when the mouse pointer is moved out of an element.
+    - onkeydown: when a key is pressed down.
+    - onsubmit: when a form is submitted.
+    - onchange: when the value of an input element changes.
+    - onfocus: when an element receives focus.
+
+  - Javascript events we can play with: https://www.w3schools.com/js/js_events.asp#:~:text=An%20HTML%20event%20can%20be,HTML%20input%20field%20was%20changed
+  - A more comprehensive list of events can be found here: https://developer.mozilla.org/en-US/docs/Web/Events
+  - And here: https://www.w3schools.com/jsref/dom_obj_event.asp
+
+
+  Event handler versus event listener 
+  Event listener: Listens for an event to happen.
+  Event handler: The code that runs in response to the event happening.
+
+  // onclick is the event listener, myFunction is the event handler 
+  <button onclick="myFunction()">Click me</button>
+
+  // "click" , myFunction is the event handler 
+  button.addEventListener("click", myFunction);
+  -->
+<body>
+
+  <!-- onclick event -->
+  <button onclick="handleButtonClick()">Click Me</button>
+
+  <br>
+
+  <!-- onmouseover(handleMouseOver()) and onmouseout(handleMouseOut()) -->
+  <div onmouseover="handleMouseOver()" onmouseout="handleMouseOut()">
+    Hover over me
+  </div>
+   
+   <br>
+
+  <!-- onkeydown event -->
+  <input type="text" onkeydown="handleKeyDown(event)">
+
+  <br>
+
+  <!-- Form: onSubmitEvent -->
+  <form onsubmit="handleSubmit(event)">
+    <input type="text" name="username" placeholder="Enter Username">
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- onchange event -->
+  <input type="text" onchange="handleChange(event)" placeholder="Type here">
+
+  <br>
+
+  <!-- onfocus event -->
+  <input type="text" onfocus="handleFocus()" placeholder="Click to focus">
+
+
+   <!-- Script to define our functions -->
+  <script>
+
+    // Function for onclick event
+    function handleButtonClick(){
+      alert("Button clicked!");
+    }
+
+    // handleMouseOver
+    function handleMouseOver(){
+      console.log("Mouse over element"); 
+    }
+
+    // handleMouseOut
+    function handleMouseOut(){
+      console.log("Mouse out of element"); 
+    }
+
+    // handleKeyDown
+    function handleKeyDown(event){
+      console.log("Key pressed:", event.key); 
+    }
+
+    // handleSubmit
+    function handleSubmit(event){
+      // Prevents default browser behavior - refreshing a ton 
+      event.preventDefault(); 
+
+      /* Grabbing the value for username 
+      The event object represents an event that has occurred in the browser, such as a button click or a form submission. 
+      - The target property of the event object refers to the element on which the event occurred. 
+        In this case, it seems that the event is related to a form submission, and the target property is likely referring to the form element.
+      - The elements property of the form element provides access to all the form controls within that form. 
+        In this case, it is accessing the form control with the name attribute set to "username".
+      - The value property is used to retrieve the value entered by the user in the form control. 
+        This value is then assigned to the username variable. */
+      const username = event.target.elements.username.value; 
+
+      console.log("Form submitted with username:", username)
+    }
+
+    // handleChange 
+    function handleChange(event){
+      console.log("Input value changed to:", event.target.value); 
+    }
+
+    // handleFocus
+    function handleFocus(){
+      console.log("Input element focused"); 
+    }
+
+  </script>
+</body>
+</html>

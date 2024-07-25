@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Form Manipulation</title>
+</head>
+   <!-- FORM MANIPULATION
+   Javascript methods allow us to manipulate form elements, retrieve user input, and perform form validation. 
+   
+   Common methods for form manipulation include:
+   1. submit(): Submits the form data to the server.
+   2. reset(): Resets the form fields to their initial values.
+    a) document.getElementById().reset(); 
+   3. elements[]: Accesses form elements by their index or name attribute.
+  -->
+<body>
+
+  <form id="myForm" onsubmit="handleSubmit(event)">
+    <label for="username"></label>
+    <input type="text" id="username" name="username">
+    <button type="submit">Submit</button>
+  </form>
+  
+
+  <script>
+    function handleSubmit(event){
+      // Prevent default form submission behavior 
+      event.preventDefault(); 
+
+      // Define a variable, username, and set that equal to the value of the form username
+      // hint: document.getElementById().value
+      const username = document.getElementById("username").value; 
+      // const username = event.target.elements.username.value; 
+
+      // Alert that the form was submitted successfully 
+      alert("Hello, " + username + "! Form was submitted successfully");
+      // alert("Form submitted with Username: " + username); 
+
+      // Reset the form after submission
+      document.getElementById("myForm").reset();
+
+    /*     
+    When the form is submitted, the handleSubmit() function is called, 
+    preventing the default form submission behavior using event.preventDefault().
+    -> Prevent default is useful because it stops the form from submitting data to the server. 
+    -> The default form submission behavior is to reload the page or redirect to a new page, which we want to avoid in this case.
+
+    It retrieves the value of the username input field and displays an alert message using alert().
+    It resets the form using the reset() method to clear the input field after submission.
+    */
+
+    }
+
+
+  </script>
+</body>
+</html>

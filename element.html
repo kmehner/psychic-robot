@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Manipulation with HTML Events</title>
+</head>
+<!-- HTML ELEMENT MANIPULATION 
+   Javascript enables us to interact with individual HTML elements and modify their properties or attributes.
+   
+   Common methods for element manipulation include:
+   1. setAttribute(): Sets the value of an attribute on the specified element.
+   2. getInnerHTML(): Retrieves the HTML content of an element.
+ -->
+<body>
+
+  <div id="container">
+    <h1>Welcome to the DOM manipulation</h1>
+    <img id="imageID" src="https://placehold.co/600x400" alt="placeholder image" onmouseover="changeImage()" onmouseout="changeImageOut()">
+  </div>
+
+  <script>
+    // Changing the src attribute of an image element on mouseover event
+    function changeImage(){
+      const newImageSrc = "https://placehold.co/600x300";
+      document.getElementById("imageID").src = newImageSrc
+    }
+
+    // Changing the src attribute of an image element on mouseout event
+    function changeImageOut(){
+      const newImageSrc = "https://placehold.co/600x400";
+      document.getElementById("imageID").src = newImageSrc
+      // document.getElementById("imageID").classList.add("border-1")
+    }
+
+  </script>
+  
+</body>
+</html>

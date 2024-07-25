@@ -1,0 +1,79 @@
+INTRODUCTION TO THE DOM (THE DOCUMENT OBJECT MODEL)
+- It represents the structure of a document as a tree of objects, allowing developers to interact with and manipulate the content of a web page using JavaScript.
+- The DOM is created by the browser when a web page is loaded, and it consists of a hierarchy of nodes that represent elements, attributes, and text content.
+- Each html element within the webpage, such as headings, paragraphs, and buttons, is represented as a node in the DOM tree structure. 
+
+HTML EVENTS
+- Events are actions or occurrences that happen in the system or in the document, such as when a user clicks a button, hovers over an element, submits a form, or types in an input field.
+- In web development, events are used to trigger JavaScript functions or scripts in response to user interactions with the web page.
+
+- The most common HTML events are:
+  - onclick: when an element is clicked.
+  - onmouseover: when the mouse pointer is moved over an element.
+  - onmouseout: when the mouse pointer is moved out of an element.
+  - onkeydown: when a key is pressed down.
+  - onsubmit: when a form is submitted.
+  - onchange: when the value of an input element changes.
+  - onfocus: when an element receives focus.
+
+- Javascript events we can play with: https://www.w3schools.com/js/js_events.asp#:~:text=An%20HTML%20event%20can%20be,HTML%20input%20field%20was%20changed
+- A more comprehensive list of events can be found here: https://developer.mozilla.org/en-US/docs/Web/Events
+- And here: https://www.w3schools.com/jsref/dom_obj_event.asp
+
+Event handler versus event listener 
+Event listener: Listens for an event to happen.
+Event handler: The code that runs in response to the event happening.
+
+// onclick is the event listener, myFunction is the event handler 
+<button onclick="myFunction()">Click me</button>
+
+// "click" , myFunction is the event handler 
+button.addEventListener("click", myFunction);
+
+
+DOM MANIPULATION
+Javascript can be used to manipulate the content of a web page by accessing and modifying the Document Object Model (DOM).
+
+Common methods for DOM manipulation include:
+1. getElementById(): Retrieves an element by its ID attribute.
+  a. const variable = document.getElementById("id")
+2. getElementsByClassName(): Retrieves elements by their class name.
+  a. const variable = document.getElementsByClassName("classname")
+3. getElementsByTagName(): Retrieves elements by their tag name.
+  a. const variable = document.getElementsByTagName("tagname")
+4. createElement(): Creates a new element node.
+  a. const variable = document.createElement("a")
+  b. a.innerHTML = "string"
+5. appendChild(): Appends a child node to an element.
+  a. document.getElementById("container").appendChild(a)
+
+HTML ELEMENT MANIPULATION 
+  Javascript enables us to interact with individual HTML elements and modify their properties or attributes.
+  
+  Common methods for element manipulation include:
+  1. setAttribute(): Sets the value of an attribute on the specified element.
+  2. getInnerHTML(): Retrieves the HTML content of an element.
+
+FORM MANIPULATION
+  Javascript methods allow us to manipulate form elements, retrieve user input, and perform form validation. 
+  
+  Common methods for form manipulation include:
+  1. submit(): Submits the form data to the server.
+  2. reset(): Resets the form fields to their initial values.
+  a. document.getElementById().reset(); 
+  3. elements[]: Accesses form elements by their index or name attribute.
+
+
+
+Grabbing the value for username 
+
+const username = event.target.elements.username.value; 
+
+The event object represents an event that has occurred in the browser, such as a button click or a form submission. 
+- The target property of the event object refers to the element on which the event occurred. 
+  In this case, it seems that the event is related to a form submission, and the target property is likely referring to the form element.
+- The elements property of the form element provides access to all the form controls within that form. 
+  In this case, it is accessing the form control with the name attribute set to "username".
+- The value property is used to retrieve the value entered by the user in the form control. 
+  This value is then assigned to the username variable. 
+  

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Manipulation</title>
+  <style>
+    /* Internal CSS */
+    .highlighted {
+      background-color: yellow;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- CSS styling via javascript -->
+  <!-- Adding a CSS class to change the background color on click 
+  - Clicking the "box" div element calls the highlight() function, which adds the "highlighted" class to the element. -->
+  <div id="box" onclick="highlight()">
+    Click me to highlight!
+  </div>
+
+  <!-- inline modification via javascript -->
+  <!-- Adding a CSS class to change the background color on click 
+  - clicking the "box" div triggers the changeColor() function, which directly modifies its inline style to change the background color to light blue. -->
+  <div id="box2" onclick="changeColor()">
+    Click me to change color
+  </div>
+  
+  <script>
+    function highlight(){
+      document.getElementById("box").classList.add("highlighted"); 
+    }
+
+    function changeColor(){ 
+      document.getElementById("box2").style.backgroundColor = "lightblue"; 
+    }
+  </script>
+
+  <!-- Adding event listeners
+    - an event listener is added to an element, and a function is executed when the event occurs
+    - clicking the button triggers an alert message using an event listener 
+   -->
+  <button id="myButton">Click Me</button>
+
+
+  <script>
+    // Add event listener
+    document.getElementById("myButton").addEventListener("click", function(){
+      alert("Button clicked");
+    });
+  </script>
+
+  <!-- Removing event listeners 
+   - event listeners can be removed using the removeEventListener() method
+   - the event listener is removed after the second click of the button, since we add it on the first
+   - removing an event listener is useful for managing event handling and preventing multiple executions (more optimized code)
+   -->
+   <button id="myButton2">Click me 2</button>
+
+   <script>
+
+    // This runs after the button is clicked 
+    function clickHandler() {
+      alert("Button clicked!");
+      document.getElementById("myButton2").removeEventListener("click", clickHandler);
+      alert("Event listener removed"); 
+    }
+
+    // We add the event listener first, and then call the click handler function 
+    document.getElementById("myButton2").addEventListener("click", clickHandler); 
+
+   </script>
+
+
+</body>
+</html>

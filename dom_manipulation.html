@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dom Manipulation</title>
+</head>
+  <!-- 
+  DOM MANIPULATION
+  Javascript can be used to manipulate the content of a web page by accessing and modifying the Document Object Model (DOM).
+  
+  Common methods for DOM manipulation include:
+    1. getElementById(): Retrieves an element by its ID attribute.
+      a) const variable = document.getElementById("id")
+    2. getElementsByClassName(): Retrieves elements by their class name.
+      a) const variable = document.getElementsByClassName("classname")
+    3. getElementsByTagName(): Retrieves elements by their tag name.
+      a) const variable = document.getElementsByTagName("tagname")
+    4. createElement(): Creates a new element node.
+      a) const variable = document.createElement("a")
+      b) a.innerHTML = "string"
+    5. appendChild(): Appends a child node to an element.
+      a) document.getElementById("container").appendChild(a)
+    
+  -->
+<body>
+
+  <div id="container">
+    <h1>Welcome to DOM manipulation</h1>
+    <p id="message">This is a paragraph.</p>
+  </div>
+
+  <!-- Button to trigger dom manipulation -->
+   <button onclick="updateParagraph()">Update paragraph</button>
+
+  <script>
+    // Javascript function to update the paragraph element
+    function updateParagraph(){
+      // Retrieving the paragraph element by ID (message)
+      const paragraph = document.getElementById("message"); 
+
+      // Updating the paragraph content ("updated paragraph content")
+      paragraph.innerHTML = "Updated paragraph content"; 
+
+      // Creating new paragraph content 
+        // Create new paragraph element
+        const newParagraph = document.createElement("p");
+        // Assign innerHTML to the new element 
+        newParagraph.innerHTML = "This is a new paragraph"; 
+
+      // Appending the new paragraph to the container div (getElementByID)(appendChild) 
+      document.getElementById("container").appendChild(newParagraph); 
+
+    }
+
+  </script>
+  
+</body>
+</html>
